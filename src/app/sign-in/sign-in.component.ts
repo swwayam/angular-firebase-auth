@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms'
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-sign-in',
   standalone: true,
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sign-in.component.css'
 })
 export class SignInComponent {
+
+  #authService = inject(AuthService)
+
   userInfo : any = {
     email: "",
     password: ""
@@ -17,6 +21,6 @@ export class SignInComponent {
 
   signIn() : void{
     console.log(this.userInfo);
-    
+    this.#authService.signIn(this.userInfo.email, this.userInfo.password)
   }
 }
