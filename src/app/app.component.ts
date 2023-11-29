@@ -5,11 +5,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FirebaseAppModule, initializeApp } from '@angular/fire/app';
 import { AuthService } from './auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SignUpComponent, FirebaseAppModule, NavbarComponent],
+  imports: [CommonModule, RouterOutlet, HomeComponent ,SignUpComponent, FirebaseAppModule, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
