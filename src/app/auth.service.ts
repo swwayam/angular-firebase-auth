@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   authState,
-  User,
+
 } from '@angular/fire/auth';
 
 @Injectable({
@@ -13,6 +13,7 @@ import {
 })
 export class AuthService {
   #auth = inject(Auth);
+
 
   constructor() {}
 
@@ -42,6 +43,7 @@ export class AuthService {
     await signOut(this.#auth);
   }
 
+  // Global State 
   isUserLoggedIn(): any {
     return authState(this.#auth);
   }

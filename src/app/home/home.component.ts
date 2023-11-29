@@ -13,7 +13,5 @@ import { AuthService } from '../auth.service';
 export class HomeComponent {
   #authService = inject(AuthService);
 
-  logout() {
-    this.#authService.signout();
-  }
+  
 }

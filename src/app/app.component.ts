@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FirebaseAppModule, initializeApp } from '@angular/fire/app';
 import { AuthService } from './auth.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SignUpComponent, FirebaseAppModule],
+  imports: [CommonModule, RouterOutlet, SignUpComponent, FirebaseAppModule, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -17,13 +18,13 @@ export class AppComponent implements OnInit {
   #authService = inject(AuthService);
 
   ngOnInit(): void {
-    this.#authService.isUserLoggedIn().subscribe((val: any) => {
-      if (val) {
-        console.log(true);
-      } else {
-        console.log(false);
-      }
-    });
+    // this.#authService.isUserLoggedIn().subscribe((val: any) => {
+    //   if (val) {
+    //     console.log(true);
+    //   } else {
+    //     console.log(false);
+    //   }
+    // });
   }
 
   isLog() {
