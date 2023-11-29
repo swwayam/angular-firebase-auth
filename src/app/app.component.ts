@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.#authService.isUserLoggedIn().subscribe((val: any) => {
-      if (val.email) {
+      if (val) {
         console.log(true);
       } else {
         console.log(false);

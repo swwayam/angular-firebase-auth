@@ -2,10 +2,11 @@ import { Injectable, inject } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
   authState,
   User,
 } from '@angular/fire/auth';
-
 
 @Injectable({
   providedIn: 'root',
@@ -28,8 +29,17 @@ export class AuthService {
     }
   }
 
-  signIn(email: string, password: string): void {
-    
+  async signIn(email: string, password: string): Promise<void> {
+    try {
+      let user = await signInWithEmailAndPassword(this.#auth, email, password);
+      console.log(user);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async signout(): Promise<void> {
+    await signOut(this.#auth);
   }
 
   isUserLoggedIn(): any {
